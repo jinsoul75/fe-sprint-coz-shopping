@@ -33,7 +33,9 @@ function BookmarkList() {
       <ul className={classes.itemList}>
         {error ? (
           <div>{error}</div>
-        ) : (
+        ) : bookmark.length === 0 ? (
+          <div className={classes.noBookmark}>북마크된 상품이 없습니다.</div>
+        ):(
           data
             .filter((d) => {
               return bookmark && bookmark.includes(d.id);

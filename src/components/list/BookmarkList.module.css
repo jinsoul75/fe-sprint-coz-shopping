@@ -1,15 +1,19 @@
 .productList{
     display: flex;
     flex-direction: column;
-    padding: 0 4.75rem;
 }
 .itemList{
     display: flex;
-    justify-content: space-between;
     list-style: none;
     margin-top:1rem;
 }
 .title{
     font-size:1.5rem;
     font-weight: 600;
+}
+.noBookmark{
+    font-size: 1rem;
+    font-weight: 500;
+    flex-grow: 1;
+    text-align: center;
 }
