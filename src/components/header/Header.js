@@ -3,8 +3,6 @@ import classes from "./Header.module.css";
 import { FaBars, FaGift, FaRegStar } from "react-icons/fa";
 
 function Header({ isOpen, clickMenuOpenHandler, clickMenuCloseHandler }) {
-  console.log(isOpen);
-  console.log(clickMenuOpenHandler);
   return (
     <header className={classes.header}>
       <div className={classes.logo}>
