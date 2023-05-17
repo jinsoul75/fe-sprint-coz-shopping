@@ -1,14 +1,10 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
 import classes from "./Header.module.css";
-import { FaBars,FaGift,FaRegStar } from "react-icons/fa";
+import { FaBars, FaGift, FaRegStar } from "react-icons/fa";
 
-function Header() {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const clickMenuHandler = () => {
-    setIsOpen(!isOpen);
-  };
+function Header({ isOpen, clickMenuOpenHandler, clickMenuCloseHandler }) {
+  console.log(isOpen);
+  console.log(clickMenuOpenHandler);
   return (
     <header className={classes.header}>
       <div className={classes.logo}>
@@ -18,16 +14,23 @@ function Header() {
         </Link>
       </div>
       <div>
-        <div className={classes.menu}>
-          <span onClick={() => clickMenuHandler()}>
-            <FaBars />
-          </span>
+        <div className={classes.menu} onClick={clickMenuOpenHandler}>
+          <FaBars />
         </div>
         {isOpen ? (
-          <div className={classes.bubble}>
+          <div
+            className={classes.bubble}
+            onClick={(event) => event.stopPropagation()}
+          >
             <div>김코딩님, 안녕하세요!</div>
-            <Link to='/products/list'><FaGift />상품리스트 페이지</Link>
-            <Link to='/bookmark'><FaRegStar />북마크 페이지</Link>
+            <Link to='/products/list' onClick={clickMenuCloseHandler}>
+              <FaGift />
+              상품리스트 페이지
+            </Link>
+            <Link to='/bookmark' onClick={clickMenuCloseHandler}>
+              <FaRegStar />
+              북마크 페이지
+            </Link>
           </div>
         ) : null}
       </div>
