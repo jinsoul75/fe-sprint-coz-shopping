@@ -12,6 +12,7 @@
 - axios
 
 ## 파일구조
+```
 📦src
  ┣ 📂components
  ┃ ┣ 📂footer
@@ -46,3 +47,4 @@
  ┣ 📜App.module.css
  ┣ 📜index.css
  ┗ 📜index.js
+```
