@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
-
+import classes from "./bookmark.module.css"
 const CustomToast = ({ message, imageSrc }) => {
   return (
-    <div>
+    <div className={classes.customToast}>
       <img src={imageSrc} alt="toast" />
       <span>{message}</span>
     </div>

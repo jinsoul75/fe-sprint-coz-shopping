@@ -1,13 +1,6 @@
-*{
-    margin:0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: sans-serif;
-}
 .productList{
     display: flex;
     flex-direction: column;
-    padding: 0 4.75rem;
 }
 .itemList{
     display: flex;
