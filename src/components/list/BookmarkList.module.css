@@ -1,19 +1,28 @@
-.productList{
-    display: flex;
-    flex-direction: column;
+.productList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ width: 100%;
 }
-.itemList{
-    display: flex;
-    list-style: none;
-    margin-top:1rem;
+.title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  width:100%;
 }
-.title{
-    font-size:1.5rem;
-    font-weight: 600;
+.itemList {
+  display: flex;
+  justify-content: flex-start;
+  list-style: none;
+  margin-top: 1rem;
+  gap: 1.5rem;
+  width: 1128px;
 }
-.noBookmark{
-    font-size: 1rem;
-    font-weight: 500;
-    flex-grow: 1;
-    text-align: center;
+.noBookmark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 500;
+  flex-grow: 1;
+  height: 264px;
 }

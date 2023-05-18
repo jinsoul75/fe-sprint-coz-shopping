@@ -1,4 +1,4 @@
-.itemContainer{
+.itemContainer {
   width: 264px;
 }
 .imgContainer {
@@ -8,24 +8,22 @@
 .productImg {
   height: 210px;
   width: 264px;
-  left: 0px;
-  top: 0px;
   border-radius: 12px;
 }
 
-.bookmarkIconOff {
+.boomarkIconToggle {
   position: absolute;
-  top: -25px;
+  top: 175px;
   right: 12px;
 }
 
-.discription > div {
+.description > div {
   display: flex;
   justify-content: space-between;
   margin-top: 0.5rem;
 }
 h3 {
-  font-size:1rem;
+  font-size: 1rem;
 }
 .exhibition {
   flex-direction: column;
@@ -43,9 +41,9 @@ h3 {
   text-align: right;
   margin-top: 0.4rem;
 }
-.sub_title{
+.sub_title {
   margin-top: 0.4rem;
 }
-.price{
+.price {
   margin-top: 0.4rem;
 }
