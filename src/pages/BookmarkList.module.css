@@ -1,0 +1,42 @@
+.productListContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 0 4.75rem;
+  margin-top: 1.5rem;
+  flex-grow: 1;
+  align-items: center;
+}
+.filterBtn > div {
+  cursor: pointer;
+}
+.filterBtn {
+  display: flex;
+  justify-content: center;
+  gap: 36px;
+  height: 122px;
+}
+
+.filterBtn span {
+  padding-top: 0.4rem;
+  font-size: 1rem;
+}
+.clickedBtn {
+  font-weight: 800;
+  text-decoration: underline;
+  text-decoration-thickness: 0.2rem;
+  color: #412dd4;
+}
+.filterBtn div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1rem;
+}
+
+.itemList {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1.2rem;
+  margin-top: 0.75rem;
+}

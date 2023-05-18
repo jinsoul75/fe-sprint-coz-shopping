@@ -1,0 +1,13 @@
+.customToast {
+  display: flex;
+  align-items: center;
+}
+
+.customToast img {
+  margin-right: 0.5rem;
+}
+
+.customToast span {
+  color: black;
+  font-weight: 700;
+}

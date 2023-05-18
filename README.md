@@ -1,12 +1,9 @@
-<<<<<<< Updated upstream
-# fe-sprint-coz-shopping
-=======
 ## 코드스테이츠 솔로프로젝트 쇼핑몰 북마크 구현
 <p align="center">
   <img src="https://github.com/jinsoul75/fe-sprint-coz-shopping/assets/80370226/b6e40430-74c1-40ea-b7d7-8e10c4ec07f4">
 </p>
 
-## 사용스택
+## 사용스택 / 라이브러리
 - React + Hooks
 - Redux + Redux toolkit
 - React Icons
@@ -20,6 +17,13 @@
 - 무한스크롤
 - 로컬스토리지
 - Redux toolkit 활용 상태 전역 관리
+
+
+## 프로젝트 특징
+- 북마크기능
+- 모달창
+- 무한스크롤
+- 토스트알람
 
 ## 파일구조
 ```
@@ -58,4 +62,3 @@
  ┣ 📜index.css
  ┗ 📜index.js
 ```
->>>>>>> Stashed changes

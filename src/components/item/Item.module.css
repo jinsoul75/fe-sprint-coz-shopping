@@ -1,0 +1,49 @@
+.itemContainer {
+  width: 264px;
+}
+.imgContainer {
+  position: relative;
+  cursor: pointer;
+}
+.productImg {
+  height: 210px;
+  width: 264px;
+  border-radius: 12px;
+}
+
+.boomarkIconToggle {
+  position: absolute;
+  top: 175px;
+  right: 12px;
+}
+
+.description > div {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+}
+h3 {
+  font-size: 1rem;
+}
+.exhibition {
+  flex-direction: column;
+}
+
+.discount {
+  text-align: right;
+  font-weight: 800;
+  color: #452cdd;
+}
+.follower {
+  font-weight: 700;
+}
+.follower_number {
+  text-align: right;
+  margin-top: 0.4rem;
+}
+.sub_title {
+  margin-top: 0.4rem;
+}
+.price {
+  margin-top: 0.4rem;
+}

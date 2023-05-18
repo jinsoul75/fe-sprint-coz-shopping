@@ -1,0 +1,54 @@
+.modalBackDrop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.productImg {
+  height: 480px;
+  width: 744px;
+  left: 0px;
+  top: 0px;
+  border-radius: 12px;
+}
+
+.modalContainer{
+  position: relative;
+}
+
+.bookmarkAndTitle{
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top:430px;
+  left:20px;
+  color: white;
+}
+
+.title >h3{
+  position: relative;
+  left: 0.6rem;
+  bottom: -0.2rem;
+  font-size:1.5rem;
+  font-weight: 700;
+}
+
+.bookmarkIcon{
+  cursor: pointer;
+}
+
+.closeBtn{
+  position: absolute;
+  top:20px;
+  right:20px;
+  cursor: pointer;
+}
