@@ -11,6 +11,11 @@ function ProductList() {
   const [selectedType, setSelectedType] = useState(null);
   const [visible, setVisible] = useState({ start: 0, end: 16 });
 
+  const PRODUCT = "Product";
+  const CATEGORY = "Category";
+  const EXHIBITION = "Exhibition";
+  const BRAND = "Brand";
+
   const fetchData = async () =>{
     try {
       const res = await axios.get(
@@ -31,14 +36,47 @@ function ProductList() {
     if (inView) {
       setVisible((prevData) => ({
         start: prevData.start,
-        end : prevData.end+16,
-      }))
+        end: prevData.end + 16,
+      }));
     }
   }, [inView]);
 
   useEffect(() => {
     setVisible({ start: 0, end: 16 });
   }, [selectedType]);
+
+  return (
+    <div className={classes.productListContainer}>
+      <div className={classes.filterBtn}>
+        <div onClick={() => setSelectedType(null)}>
+          <img src='../images/filterBtnMain.svg' alt='main'></img>
+          <span className={selectedType === null && classes.clickedBtn}>
+            전체
+          </span>
+        </div>
+        <div onClick={() => setSelectedType(PRODUCT)}>
+          <img src='../images/filterBtnProduct.svg' alt='main'></img>
+          <span className={selectedType === PRODUCT && classes.clickedBtn}>
+            상품
+          </span>
+        </div>
+        <div onClick={() => setSelectedType(CATEGORY)}>
+          <img src='../images/filterBtnCategory.svg' alt='main'></img>
+          <span className={selectedType === CATEGORY && classes.clickedBtn}>
+            카테고리
+          </span>
+        </div>
+        <div onClick={() => setSelectedType(EXHIBITION)}>
+          <img src='../images/filterBtnExhib.svg' alt='main'></img>
+          <span className={selectedType === EXHIBITION && classes.clickedBtn}>
+            기획전
+          </span>
+        </div>
+        <div onClick={() => setSelectedType(BRAND)}>
+          <img src='../images/filterBtnBrand.svg' alt='main'></img>
+          <span className={selectedType === BRAND && classes.clickedBtn}>
+            브랜드
+          </span>
   
   return (
     <div className={classes.productListContainer}>
@@ -69,9 +107,9 @@ function ProductList() {
           <div>{error}</div> // 에러 메시지 출력
         ) : (
           data
-          .filter((d) => selectedType === null || d.type === selectedType)
-          .slice(visible.start, visible.end)
-          .map((d,idx) => <Item data={d} key={ `id${idx}`} />)        
+            .filter((d) => selectedType === null || d.type === selectedType)
+            .slice(visible.start, visible.end)
+            .map((d, idx) => <Item data={d} key={`id${idx}`} />)  
         )}
         <div ref={ref}></div>
       </ul>
