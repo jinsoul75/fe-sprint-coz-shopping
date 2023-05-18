@@ -7,6 +7,7 @@ function Item({ data }) {
   if (!data) {
     return null;
   }
+
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const dispatch = useDispatch();
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -24,7 +25,7 @@ function Item({ data }) {
 
   return (
     <li className={classes.itemContainer}>
-      <span className={classes.imgContainer} onClick={clickModalOpenHandler}>
+      <div className={classes.imgContainer} onClick={clickModalOpenHandler}>
         <img
           className={classes.productImg}
           key={data.id}
@@ -33,24 +34,26 @@ function Item({ data }) {
         ></img>
         <img
           onClick={clickBookmarkHandler}
-          className={classes.bookmarkIconOff}
+          className={classes.boomarkIconToggle}
           src={
             isMarked
               ? `${"../images/bookmarkIconOn.svg"}`
               : `${"../images/bookmarkIconOff.svg"}`
           }
-          alt='bookmark-icon-off'
+          alt={isMarked ? "bookmark-icon-on" : "bookmark-icon-off"}
         ></img>
-      </span>
-      <div className={classes.discription}>
+      </div>
+      <div className={classes.description}>
         {data.type === "Product" ? (
-          <div className={classes.product}> 
+          <div className={classes.product}>
             <h3 className={classes.title}>{data.title}</h3>
             <div>
               <div
                 className={classes.discount}
               >{`${data.discountPercentage}%`}</div>
-              <div className={classes.price}>{`${Number(data.price).toLocaleString()}원`}</div>
+              <div className={classes.price}>{`${Number(
+                data.price
+              ).toLocaleString()}원`}</div>
             </div>
           </div>
         ) : data.type === "Category" ? (
@@ -67,7 +70,9 @@ function Item({ data }) {
             <h3>{data.brand_name}</h3>
             <div>
               <div className={classes.follower}>관심고객수</div>
-              <div className={classes.follower_number}>{`${data.follower.toLocaleString()}`}</div>
+              <div
+                className={classes.follower_number}
+              >{`${data.follower.toLocaleString()}`}</div>
             </div>
           </div>
         )}
