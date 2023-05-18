@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 function BookmarkList() {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
-  const bookmark = useSelector((state) => state.bookmark);
+  const bookmark = useSelector((state) => state.bookmark)
 
   // eslint-disable-next-line array-callback-return
 
@@ -36,9 +36,9 @@ function BookmarkList() {
         ) : bookmark.length === 0 ? (
           <div className={classes.noBookmark}>북마크된 상품이 없습니다.</div>
         ):(
-          data
-            .filter((d) => {
-              return bookmark && bookmark.includes(d.id);
+          bookmark
+            .map((id) => {
+              return data.filter(d=>d.id===id)[0]
             })
             .slice(0, 4)
             .map((d, idx) => <Item data={d} key={`id${idx}`} />)
