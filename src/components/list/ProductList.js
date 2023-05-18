@@ -15,7 +15,7 @@ function ProductList() {
         );
         setData(res.data);
       } catch (error) {
-        setError("데이터를 가져오는 도중에 에러가 발생했습니다."); 
+        setError("데이터를 가져오는 도중에 에러가 발생했습니다.");
         console.log(error);
       }
     };
