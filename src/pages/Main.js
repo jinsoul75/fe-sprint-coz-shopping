@@ -4,10 +4,10 @@ import classes from "./Main.module.css";
 
 function Main() {
     return (
-        <div className={classes.container}>
+        <main className={classes.container}>
             <ProductList className={classes.productList}/>
             <BookmarkList className={classes.bookmarkList}/>
-        </div>
+        </main>
     )
 }
 
