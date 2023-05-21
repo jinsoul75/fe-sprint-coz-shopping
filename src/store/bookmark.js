@@ -1,6 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
 import classes from "./bookmark.module.css";
+import bookmarkIconOff from "../assets/bookmarkIconOff.svg";
+import bookmarkIconOn from "../assets/bookmarkIconOn.svg";
 
 const CustomToast = ({ message, imageSrc }) => {
   return (
@@ -25,7 +27,7 @@ const bookmarkSlice = createSlice({
         toast(
           <CustomToast
             message='상품이 북마크에서 제거되었습니다.'
-            imageSrc='../images/bookmarkIconOff.svg'
+            imageSrc={`${bookmarkIconOff}`}
           />
         );
       } else {
@@ -35,7 +37,7 @@ const bookmarkSlice = createSlice({
         toast(
           <CustomToast
             message='상품이 북마크에서 추가되었습니다.'
-            imageSrc='../images/bookmarkIconOn.svg'
+            imageSrc={`${bookmarkIconOn}`}
           />
         );
       }

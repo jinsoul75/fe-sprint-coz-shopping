@@ -2,7 +2,9 @@ import classes from "./Modal.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import { modalActions } from "../../store/modal";
 import { bookmarkActions } from "../../store/bookmark";
-
+import bookmarkIconOff from "../../assets/bookmarkIconOff.svg";
+import bookmarkIconOn from "../../assets/bookmarkIconOn.svg";
+import closeBtn from "../../assets/closeBtn.svg";
 function Modal() {
   const isShowModal = useSelector((state) => state.modal.showModal);
   const isMarked = useSelector(state => state.bookmark.includes(isShowModal.id))
@@ -28,7 +30,7 @@ function Modal() {
         <img
           onClick={clickModalCloseHandler}
           className={classes.closeBtn}
-          src='../images/closeBtn.svg'
+          src={`${closeBtn}`}
           alt='close-button'
         ></img>
         <div className={classes.bookmarkAndTitle}>
@@ -37,8 +39,8 @@ function Modal() {
             className={classes.bookmarkIcon}
             src={
               isMarked
-                ? `${"../images/bookmarkIconOn.svg"}`
-                : `${"../images/bookmarkIconOff.svg"}`
+                ? `${bookmarkIconOn}`
+                : `${bookmarkIconOff}`
             }
             alt='bookmark-icon'
           ></img>
