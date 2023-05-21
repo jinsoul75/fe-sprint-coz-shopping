@@ -5,12 +5,19 @@ import axios from "axios";
 import classes from "./BookmarkList.module.css";
 import { useSelector } from "react-redux";
 import types from '../constants/types';
+import filterBtnMain from "../assets/filterBtnMain.svg";
+import filterBtnProduct from "../assets/filterBtnProduct.svg";
+import filterBtnCategory from "../assets/filterBtnCategory.svg";
+import filterBtnExhib from "../assets/filterBtnExhib.svg";
+import filterBtnBrand from "../assets/filterBtnBrand.svg";
+
 const {ALL, PRODUCT,CATEGORY,EXHIBITION,BRAND} = types;
+
 function BookmarkList() {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
   const [ref, inView] = useInView();
-  const [selectedType, setSelectedType] = useState(ALL);
+  const [selectedType, setSelectedType] = useState(null);
   const [visible, setVisible] = useState({ start: 0, end: 16 });
   const bookmark = useSelector(state => state.bookmark)
 
@@ -48,24 +55,24 @@ function BookmarkList() {
   return (
     <div className={classes.productListContainer}>
       <div className={classes.filterBtn}>
-        <div onClick={()=>setSelectedType(ALL)}>
-          <img src='../images/filterBtnMain.svg' alt='main'></img>
+        <div onClick={()=>setSelectedType(null)}>
+          <img src={filterBtnMain} alt='main'></img>
           <span className={selectedType === ALL&& classes.clickedBtn}>전체</span>
         </div>
         <div onClick={()=>setSelectedType(PRODUCT)}>
-          <img src='../images/filterBtnProduct.svg' alt='main'></img>
+          <img src={filterBtnProduct} alt='product'></img>
           <span className={selectedType === PRODUCT&& classes.clickedBtn}>상품</span>
         </div>
         <div onClick={()=>setSelectedType(CATEGORY)}>
-          <img src='../images/filterBtnCategory.svg' alt='main'></img>
+          <img src={filterBtnCategory} alt='category'></img>
           <span className={selectedType === CATEGORY&& classes.clickedBtn}>카테고리</span>
         </div>
         <div onClick={()=>setSelectedType(EXHIBITION)}>
-          <img src='../images/filterBtnExhib.svg' alt='main'></img>
+          <img src={filterBtnExhib} alt='exhibition'></img>
           <span className={selectedType === EXHIBITION&& classes.clickedBtn}>기획전</span>
         </div>
         <div onClick={()=>setSelectedType(BRAND)}>
-          <img src='../images/filterBtnBrand.svg' alt='main'></img>
+          <img src={filterBtnBrand} alt='brand'></img>
           <span className={selectedType === BRAND&& classes.clickedBtn}>브랜드</span>
         </div>
       </div>

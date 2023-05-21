@@ -2,6 +2,8 @@ import classes from "./Item.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import { modalActions } from "../../store/modal";
 import { bookmarkActions } from "../../store/bookmark";
+import bookmarkIconOff from "../../assets/bookmarkIconOff.svg";
+import bookmarkIconOn from "../../assets/bookmarkIconOn.svg";
 
 function Item({ data }) {
   if (!data) {
@@ -35,11 +37,7 @@ function Item({ data }) {
         <img
           onClick={clickBookmarkHandler}
           className={classes.boomarkIconToggle}
-          src={
-            isMarked
-              ? `${"../images/bookmarkIconOn.svg"}`
-              : `${"../images/bookmarkIconOff.svg"}`
-          }
+          src={isMarked ? `${bookmarkIconOn}` : `${bookmarkIconOff}`}
           alt={isMarked ? "bookmark-icon-on" : "bookmark-icon-off"}
         ></img>
       </div>

@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
 import classes from "./Header.module.css";
 import { FaBars, FaGift, FaRegStar } from "react-icons/fa";
-
+import logo from '../../assets/logo.svg'
 function Header({ isOpen, clickMenuOpenHandler, clickMenuCloseHandler }) {
   return (
     <header className={classes.header}>
       <div className={classes.logo}>
         <Link to='/'>
-          <img src='../images/logo.svg' alt='logo'></img>
+          <img src={logo} alt='logo'></img>
           <span>COZ Shopping</span>
         </Link>
       </div>
