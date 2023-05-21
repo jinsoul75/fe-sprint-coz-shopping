@@ -23,6 +23,16 @@
 ## 파일구조
 ```
 📦src
+ ┣ 📂assets
+ ┃ ┣ 📜bookmarkIconOff.svg
+ ┃ ┣ 📜bookmarkIconOn.svg
+ ┃ ┣ 📜closeBtn.svg
+ ┃ ┣ 📜filterBtnBrand.svg
+ ┃ ┣ 📜filterBtnCategory.svg
+ ┃ ┣ 📜filterBtnExhib.svg
+ ┃ ┣ 📜filterBtnMain.svg
+ ┃ ┣ 📜filterBtnProduct.svg
+ ┃ ┗ 📜logo.svg
  ┣ 📂components
  ┃ ┣ 📂footer
  ┃ ┃ ┣ 📜Footer.js
@@ -41,6 +51,8 @@
  ┃ ┗ 📂modal
  ┃ ┃ ┣ 📜Modal.js
  ┃ ┃ ┗ 📜Modal.module.css
+ ┣ 📂constants
+ ┃ ┗ 📜types.js
  ┣ 📂pages
  ┃ ┣ 📜BookmarkList.js
  ┃ ┣ 📜BookmarkList.module.css
@@ -50,10 +62,10 @@
  ┃ ┗ 📜ProductList.module.css
  ┣ 📂store
  ┃ ┣ 📜bookmark.js
+ ┃ ┣ 📜bookmark.module.css
  ┃ ┣ 📜index.js
  ┃ ┗ 📜modal.js
  ┣ 📜App.js
  ┣ 📜App.module.css
- ┣ 📜index.css
  ┗ 📜index.js
 ```
