@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import classes from "./Header.module.css";
-import { FaBars, FaGift, FaRegStar } from "react-icons/fa";
-import logo from '../../assets/logo.svg'
+import { FaBars } from "react-icons/fa";
+import logo from "../../assets/logo.svg";
+import DropDownMenu from "../dropdown/DropDownMenu";
+
 function Header({ isOpen, clickMenuOpenHandler, clickMenuCloseHandler }) {
   return (
     <header className={classes.header}>
@@ -15,22 +17,7 @@ function Header({ isOpen, clickMenuOpenHandler, clickMenuCloseHandler }) {
         <div className={classes.menu} onClick={clickMenuOpenHandler}>
           <FaBars />
         </div>
-        {isOpen ? (
-          <div
-            className={classes.bubble}
-            onClick={(event) => event.stopPropagation()}
-          >
-            <div>김코딩님, 안녕하세요!</div>
-            <Link to='/products/list' onClick={clickMenuCloseHandler}>
-              <FaGift />
-              상품리스트 페이지
-            </Link>
-            <Link to='/bookmark' onClick={clickMenuCloseHandler}>
-              <FaRegStar />
-              북마크 페이지
-            </Link>
-          </div>
-        ) : null}
+        {isOpen ? <DropDownMenu clickMenuCloseHandler={clickMenuCloseHandler}/> : null}
       </div>
     </header>
   );
