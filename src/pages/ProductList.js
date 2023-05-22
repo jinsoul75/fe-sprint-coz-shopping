@@ -1,42 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import Item from "../components/item/Item";
-import axios from "axios";
 import classes from "./ProductList.module.css";
+import Filter from '../components/filter/Filter'
+import useFetchAllData from '../hooks/useFetchAllData';
 
-import filterBtnMain from "../assets/filterBtnMain.svg";
-import filterBtnProduct from "../assets/filterBtnProduct.svg";
-import filterBtnCategory from "../assets/filterBtnCategory.svg";
-import filterBtnExhib from "../assets/filterBtnExhib.svg";
-import filterBtnBrand from "../assets/filterBtnBrand.svg";
 
 function ProductList() {
-  const [data, setData] = useState([]);
-  const [error, setError] = useState(null);
   const [ref, inView] = useInView();
   const [selectedType, setSelectedType] = useState(null);
   const [visible, setVisible] = useState({ start: 0, end: 16 });
 
-  const PRODUCT = "Product";
-  const CATEGORY = "Category";
-  const EXHIBITION = "Exhibition";
-  const BRAND = "Brand";
-
-  const fetchData = async () => {
-    try {
-      const res = await axios.get(
-        "http://cozshopping.codestates-seb.link/api/v1/products"
-      );
-      setData(res.data);
-    } catch (error) {
-      setError("데이터를 가져오는 도중에 에러가 발생했습니다.");
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
+  const [data, error] = useFetchAllData('http://cozshopping.codestates-seb.link/api/v1/products')
 
   useEffect(() => {
     if (inView) {
@@ -53,38 +28,7 @@ function ProductList() {
 
   return (
     <div className={classes.productListContainer}>
-      <div className={classes.filterBtn}>
-        <div onClick={() => setSelectedType(null)}>
-          <img src={filterBtnMain} alt='main'></img>
-          <span className={selectedType === null && classes.clickedBtn}>
-            전체
-          </span>
-        </div>
-        <div onClick={() => setSelectedType(PRODUCT)}>
-          <img src={filterBtnProduct} alt='main'></img>
-          <span className={selectedType === PRODUCT && classes.clickedBtn}>
-            상품
-          </span>
-        </div>
-        <div onClick={() => setSelectedType(CATEGORY)}>
-          <img src={filterBtnCategory} alt='main'></img>
-          <span className={selectedType === CATEGORY && classes.clickedBtn}>
-            카테고리
-          </span>
-        </div>
-        <div onClick={() => setSelectedType(EXHIBITION)}>
-          <img src={filterBtnExhib} alt='main'></img>
-          <span className={selectedType === EXHIBITION && classes.clickedBtn}>
-            기획전
-          </span>
-        </div>
-        <div onClick={() => setSelectedType(BRAND)}>
-          <img src={filterBtnBrand} alt='main'></img>
-          <span className={selectedType === BRAND && classes.clickedBtn}>
-            브랜드
-          </span>
-        </div>
-      </div>
+      <Filter selectedType={selectedType} setSelectedType={setSelectedType}/>
       <ul className={classes.itemList}>
         {error ? (
           <div>{error}</div> // 에러 메시지 출력
