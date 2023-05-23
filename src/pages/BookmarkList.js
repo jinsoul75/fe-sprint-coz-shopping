@@ -1,37 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { useInView } from 'react-intersection-observer';
 import Item from "../components/item/Item";
-import axios from "axios";
 import classes from "./BookmarkList.module.css";
 import { useSelector } from "react-redux";
 import Filter from '../components/filter/Filter'
+import useFetchAllData from '../hooks/useFetchAllData';
 
 function BookmarkList() {
-  const [data, setData] = useState([]);
-  const [error, setError] = useState(null);
   const [ref, inView] = useInView();
   const [selectedType, setSelectedType] = useState(null);
   const [visible, setVisible] = useState({ start: 0, end: 16 });
   const bookmark = useSelector(state => state.bookmark)
 
-  const fetchData = async () =>{
-    try {
-      const res = await axios.get(
-        "http://cozshopping.codestates-seb.link/api/v1/products"
-      );
-      setData(res.data.filter(d=>{
-        return bookmark.includes(d.id)
-      }));
-    } catch (error){
-      setError("데이터를 가져오는 도중에 에러가 발생했습니다.");
-      console.log(error);
-    }
-  }
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
+  const [data,error] = useFetchAllData('http://cozshopping.codestates-seb.link/api/v1/products')
+  const bookedData = data.filter(d=>{
+    return bookmark.includes(d.id)
+  })
   useEffect(() => {
     if (inView) {
       setVisible((prevData) => ({
@@ -52,7 +36,7 @@ function BookmarkList() {
         {error ? (
           <div>{error}</div> // 에러 메시지 출력
         ) : (
-          data
+          bookedData
           .filter((d) => selectedType === null || d.type === selectedType)
           .slice(visible.start, visible.end)
           .map((d,idx) => <Item data={d} key={ `id${idx}`} />)        

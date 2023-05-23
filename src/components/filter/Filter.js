@@ -1,13 +1,15 @@
 import { React } from "react";
-import types from '../../constants/types';
+import types from "../../constants/types";
 import classes from "./Filter.module.css";
+
 import filterBtnMain from "../../assets/filterBtnMain.svg";
 import filterBtnProduct from "../../assets/filterBtnProduct.svg";
 import filterBtnCategory from "../../assets/filterBtnCategory.svg";
 import filterBtnExhib from "../../assets/filterBtnExhib.svg";
 import filterBtnBrand from "../../assets/filterBtnBrand.svg";
+
 function Filter({ selectedType, setSelectedType }) {
-    const {PRODUCT,CATEGORY,EXHIBITION,BRAND} = types;
+  const { PRODUCT, CATEGORY, EXHIBITION, BRAND } = types;
   return (
     <div className={classes.filterBtn}>
       <div onClick={() => setSelectedType(null)}>
