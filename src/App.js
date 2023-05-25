@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useSelector } from "react-redux";
 import classes from "./App.module.css";
-import { useState } from "react";
+import { useState, Suspense } from "react";
 
 import Main from "./pages/Main";
 import ProductList from "./pages/ProductList";
@@ -42,11 +42,13 @@ function App() {
           clickMenuOpenHandler={clickMenuOpenHandler}
           clickMenuCloseHandler={clickMenuCloseHandler}
         />
-        <Routes>
-          <Route path='/' element={<Main />}></Route>
-          <Route path='/products/list' element={<ProductList />}></Route>
-          <Route path='/bookmark' element={<BookmarkList />}></Route>
-        </Routes>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Routes>
+            <Route path='/' element={<Main />}></Route>
+            <Route path='/products/list' element={<ProductList />}></Route>
+            <Route path='/bookmark' element={<BookmarkList />}></Route>
+          </Routes>
+        </Suspense>
         <Footer />
         {isModal ? <Modal /> : null}
       </div>
