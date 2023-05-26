@@ -1,6 +1,5 @@
 import classes from "./DropDownList.module.css";
-
-function DropDownList({ text1,text2,text3 }) {
+function DropDownList({ text1, text2, text3 }) {
   return (
     <div>
       <div className={classes.bubble}>

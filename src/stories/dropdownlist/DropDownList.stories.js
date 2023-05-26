@@ -1,7 +1,7 @@
 import DropDownList, { DropDownList as Template } from "./DropDownList.js";
 
 export default {
-  title: "Basic/ItemBox", // 스토리 분류 및 컴포넌트 이름
+  title: "Basic/Dropdown", // 스토리 분류 및 컴포넌트 이름
   component: Template, // 테스트할 컴포넌트(ItemBox)
   parameters: {
     backgrounds: {
@@ -11,9 +11,9 @@ export default {
   controls: { hideNoControlsWarning: true },
 };
 
-export const CustomDropDownList = (args) => <DropDownList {...args} />
-CustomDropDownList.args = {
-  text1: "",
-  text2: "",
-  text3: "",
+export const WithDropDownList = (args) => <DropDownList {...args} />;
+WithDropDownList.args = {
+  text1: "안녕하세요!",
+  text2: "상품 리스트",
+  text3: "북마크 리스트",
 };
